@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>کارستان</title>
+<style>
+body{font-family:Tahoma;background:#f1f6f3;margin:0;color:#18382e}
+header{background:#14634d;color:white;padding:25px;text-align:center}
+main{padding:16px;max-width:600px;margin:auto}
+input,button{font:inherit;padding:12px;margin:6px 0;border-radius:9px;border:1px solid #ccc;width:100%;box-sizing:border-box}
+button{background:#14634d;color:white;border:0}
+.job{background:white;padding:14px;margin:12px 0;border-radius:12px}
+</style>
+</head>
+<body>
+<header><h1>کارستان</h1><p>راه پیدا کردن کار در افغانستان</p></header>
+<main>
+<h3>جست‌وجوی کار</h3>
+<input id="search" placeholder="نام شغل را بنویس">
+<button onclick="showJobs()">جست‌وجو</button>
+<div id="jobs"></div>
+<h3>ثبت آگهی استخدام</h3>
+<input id="title" placeholder="عنوان شغل">
+<input id="city" placeholder="شهر">
+<input id="phone" placeholder="شماره تماس">
+<button onclick="addJob()">ثبت آگهی</button>
+</main>
+<script>
+let jobs=JSON.parse(localStorage.getItem("karistan")||"[]");
+function showJobs(){
+let q=document.getElementById("search").value;
+document.getElementById("jobs").innerHTML=jobs.filter(j=>j.title.includes(q)).map(j=>`<div class="job"><b>${j.title}</b><p>${j.city}</p><p>${j.phone}</p></div>`).join("")||"آگهی‌ای پیدا نشد";
+}
+function addJob(){
+let title=document.getElementById("title").value;
+let city=document.getElementById("city").value;
+let phone=document.getElementById("phone").value;
+if(!title||!city||!phone){alert("همه قسمت‌ها را پر کن");return}
+jobs.push({title,city,phone});
+localStorage.setItem("karistan",JSON.stringify(jobs));
+showJobs();alert("آگهی ذخیره شد");
+}
+showJobs();
+</script>
+</body>
+</html>
