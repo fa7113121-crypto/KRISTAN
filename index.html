@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -7,155 +6,157 @@
 <meta name="theme-color" content="#12664f">
 <title>کارستان | کاریابی افغانستان</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f2f7f4;color:#19352c;font-family:Tahoma,Arial}
-header{background:#12664f;color:white;text-align:center;padding:30px 15px}
-header h1{font-size:34px;margin:0 0 10px}
-main{max-width:750px;margin:20px auto;padding:12px}
-.card{background:white;padding:20px;border-radius:14px;margin-bottom:16px;box-shadow:0 2px 12px #0001}
-h2{color:#12664f;font-size:20px}
-input,textarea,select,button{width:100%;padding:13px;margin:7px 0;border:1px solid #d5e1db;border-radius:9px;font-family:inherit;font-size:15px}
-button{background:#12664f;color:white;border:0;font-weight:bold;cursor:pointer}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav button{flex:1}
-.job{padding:14px;border:1px solid #dce9e1;border-radius:10px;margin:12px 0}
-.job h3{color:#12664f}
-small{color:#718078}
-[hidden]{display:none!important}
-footer{text-align:center;padding:20px;color:#718078}
+:root{--green:#12664f;--green2:#0b4939;--mint:#e8f4ef;--bg:#f4f7f5;--ink:#18352c;--muted:#6c7d76;--line:#dce7e1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.7}
+header{background:linear-gradient(135deg,var(--green2),#188568);color:white;padding:20px 15px 25px}
+.top,.hero,main{max-width:980px;margin-left:auto;margin-right:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:44px;height:44px;border-radius:13px;background:#ffffff22;display:grid;place-items:center;font-size:25px;font-weight:bold}
+h1{font-size:23px;margin:0}.brand small{font-size:12px;color:#d7eee5}.top button{width:auto;background:#ffffff18;border:1px solid #ffffff55;color:white}
+.hero{margin-top:22px}.hero h2{font-size:24px;margin:0 0 5px}.hero p{margin:0;color:#d8eee6}
+main{padding:18px 14px 35px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.stat,.panel,.job{background:white;border:1px solid var(--line);border-radius:14px}.stat{text-align:center;padding:10px}.stat b{display:block;color:var(--green);font-size:20px}.stat span{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0 12px}.tabs button{white-space:nowrap;width:auto;background:#e8f1ec;color:var(--green);border:1px solid var(--line)}.tabs button.active{background:var(--green);color:white}
+.panel{padding:15px;margin-bottom:14px}.panel h3{font-size:18px;margin:0 0 12px}
+input,select,textarea{font:inherit;width:100%;padding:10px 11px;border:1px solid #cbd9d1;border-radius:9px;background:white;color:var(--ink)}
+button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:var(--green);color:white}button.secondary{background:#e8f1ec;color:var(--green);border:1px solid var(--line)}button.danger{background:#fff0ef;color:#a6322b;border:1px solid #f1d3d0}button:disabled{opacity:.55}
+.searchgrid{display:grid;grid-template-columns:2fr 1fr auto;gap:8px}.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.job{padding:13px;display:flex;flex-direction:column;gap:6px}.job h4{margin:0;font-size:17px}.meta,.muted{font-size:13px;color:var(--muted)}.tag{display:inline-block;background:var(--mint);color:var(--green);border-radius:20px;padding:2px 8px;font-size:11px;margin-left:4px}
+.jobfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}.jobfoot small{font-size:11px;color:var(--muted)}.jobfoot button{font-size:13px;padding:7px 10px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;font-size:13px;margin-bottom:4px}.full{grid-column:1/-1}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.notice{background:#fff8e8;border:1px solid #f1dfb6;color:#74531b;border-radius:10px;padding:9px 11px;font-size:12px;margin-top:10px}
+.empty{text-align:center;padding:22px;color:var(--muted);background:white;border:1px dashed #cbd9d1;border-radius:14px;grid-column:1/-1}.hidden{display:none!important}
+#status{margin:0 0 12px;padding:9px 11px;border-radius:9px;background:#e8f1ec;color:#245b48;font-size:13px;display:none}#status.error{background:#fff0ef;color:#9c3028}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+@media(max-width:650px){.searchgrid{grid-template-columns:1fr 1fr}.searchgrid input,.searchgrid button{grid-column:1/-1}.jobs,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero h2{font-size:21px}}
 </style>
 </head>
 <body>
 <header>
-<h1>کارستان</h1>
-<p>کاریابی و فرصت‌های شغلی افغانستان</p>
+ <div class="top"><div class="brand"><div class="logo">ک</div><div><h1>کارستان</h1><small>راه پیدا کردن کار در افغانستان</small></div></div><button id="accountBtn">ورود / ثبت‌نام</button></div>
+ <div class="hero"><h2>فرصت شغلی مناسب خود را پیدا کن</h2><p>آگهی‌های کاری را جست‌وجو کن یا فرصت استخدام خود را ثبت کن.</p></div>
 </header>
-
 <main>
-<div class="card">
-<h2>به کارستان خوش آمدید</h2>
-<p>اینجا کارجو و کارفرما به یکدیگر وصل می‌شوند.</p>
-<nav>
-<button onclick="showPage('jobs')">جستجوی کار</button>
-<button onclick="showPage('post')">ثبت آگهی</button>
-<button onclick="showPage('register')">ثبت‌نام</button>
-</nav>
-</div>
-
-<section id="jobs" class="card">
-<h2>فرصت‌های شغلی</h2>
-<input id="search" placeholder="جستجوی شغل یا شهر" oninput="renderJobs()">
-<div id="jobList"></div>
-</section>
-
-<section id="post" class="card" hidden>
-<h2>ثبت آگهی استخدام</h2>
-<input id="title" placeholder="عنوان شغل">
-<input id="city" placeholder="شهر یا ولایت">
-<input id="company" placeholder="نام شرکت">
-<input id="salary" placeholder="میزان معاش">
-<textarea id="description" placeholder="شرح وظایف و شرایط کار"></textarea>
-<input id="phone" placeholder="شماره تماس">
-<button onclick="addJob()">ثبت آگهی</button>
-<p id="message"></p>
-</section>
-
-<section id="register" class="card" hidden>
-<h2>ثبت‌نام</h2>
-<select id="role">
-<option>کارجو</option>
-<option>کارفرما</option>
-</select>
-<input id="name" placeholder="نام و نام خانوادگی">
-<input id="regCity" placeholder="شهر">
-<input id="regPhone" placeholder="شماره تماس">
-<input id="skill" placeholder="مهارت یا تخصص">
-<button onclick="registerUser()">ثبت‌نام</button>
-<p id="regMessage"></p>
-</section>
+ <div id="status" role="status"></div>
+ <section class="stats">
+  <div class="stat"><b id="jobCount">۰</b><span>آگهی‌های ثبت‌شده</span></div>
+  <div class="stat"><b>۳۴</b><span>ولایت افغانستان</span></div>
+  <div class="stat"><b>۲</b><span>نوع حساب کاربری</span></div>
+ </section>
+ <nav class="tabs"><button class="active" data-tab="find">جست‌وجوی کار</button><button data-tab="post">ثبت آگهی</button><button data-tab="profile">حساب کاربری</button></nav>
+ <section id="findPanel" class="panel">
+  <h3>جست‌وجوی فرصت‌های کاری</h3>
+  <div class="searchgrid"><input id="searchText" placeholder="نام شغل یا مهارت را بنویس"><select id="searchCity"><option value="">همه شهرها</option><option>هرات</option><option>کابل</option><option>قندهار</option><option>مزار شریف</option><option>جلال‌آباد</option><option>بلخ</option><option>غزنی</option><option>بامیان</option><option>فراه</option><option>نیمروز</option><option>ولایت دیگر</option></select><button id="searchBtn">جست‌وجو</button></div>
+ </section>
+ <section id="jobs" class="jobs"></section>
+ <section id="postPanel" class="panel hidden">
+  <h3>ثبت آگهی استخدام</h3><p class="muted">برای ثبت آگهی باید با حساب کارفرما وارد شوید.</p>
+  <div class="formgrid">
+   <div class="field"><label for="jobTitle">عنوان شغل *</label><input id="jobTitle" placeholder="مثلاً فروشنده، راننده"></div>
+   <div class="field"><label for="jobCity">شهر / ولایت *</label><select id="jobCity"><option value="">انتخاب شهر</option><option>هرات</option><option>کابل</option><option>قندهار</option><option>مزار شریف</option><option>جلال‌آباد</option><option>بلخ</option><option>غزنی</option><option>بامیان</option><option>فراه</option><option>نیمروز</option><option>ولایت دیگر</option></select></div>
+   <div class="field"><label for="jobCategory">دسته‌بندی</label><select id="jobCategory"><option>عمومی</option><option>فروش و بازاریابی</option><option>ساختمانی و فنی</option><option>آموزش</option><option>رانندگی و ترانسپورت</option><option>اداری و دفتری</option><option>فناوری و کمپیوتر</option><option>صحت و درمان</option><option>خدمات و رستورانت</option></select></div>
+   <div class="field"><label for="jobSalary">معاش (اختیاری)</label><input id="jobSalary" placeholder="مثلاً توافقی یا ۱۲۰۰۰ افغانی"></div>
+   <div class="field"><label for="jobPhone">شماره تماس *</label><input id="jobPhone" inputmode="tel" placeholder="شماره تماس کارفرما"></div>
+   <div class="field"><label for="jobType">نوع کار</label><select id="jobType"><option>تمام‌وقت</option><option>نیمه‌وقت</option><option>روز مزد</option><option>دورکاری</option></select></div>
+   <div class="field full"><label for="jobDesc">توضیحات و شرایط</label><textarea id="jobDesc" rows="3" placeholder="شرایط استخدام، تجربه یا مهارت موردنیاز..."></textarea></div>
+  </div>
+  <div class="actions"><button id="publishBtn">ثبت آگهی</button></div>
+ </section>
+ <section id="profilePanel" class="panel hidden"><h3>حساب کاربری</h3><div id="profileContent"></div></section>
+ <footer>کارستان — نسخه متصل به پایگاه داده</footer>
 </main>
-
-<footer>کارستان | فرصت برابر برای کار و پیشرفت</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-let jobs=JSON.parse(localStorage.getItem("karistan_jobs")||"[]");
-
-function showPage(id){
-["jobs","post","register"].forEach(x=>{
-document.getElementById(x).hidden=x!==id;
-});
+"use strict";
+const SUPABASE_URL="https://txpctjorpisyfubocele.supabase.co";
+const SUPABASE_KEY="sb_publishable_eSGKSZ25LBz0JmrPw4kHdg_o0P3OVYZ";
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);
+let currentUser=null, profile=null, jobs=[];
+const fa=n=>new Intl.NumberFormat("fa-IR").format(n);
+function status(message,error=false){$("status").textContent=message;$("status").style.display="block";$("status").classList.toggle("error",error)}
+function clearStatus(){$("status").style.display="none"}
+function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function phoneLoginEmail(phone){
+ let digits=String(phone||"").replace(/\D/g,"");
+ if(digits.startsWith("0"))digits="93"+digits.slice(1);
+ else if(digits.startsWith("7"))digits="93"+digits;
+ if(digits.length<8)throw new Error("شماره موبایل معتبر نیست؛ کد کشور را هم وارد کنید.");
+ return "p"+digits+"@login.karistan.invalid";
 }
-
+function tab(name){["find","post","profile"].forEach(t=>$(t+"Panel").classList.toggle("hidden",t!==name));document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===name));if(name==="profile")renderProfile()}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>tab(b.dataset.tab)));
+$("accountBtn").onclick=()=>tab("profile");
+async function loadJobs(){
+ const {data,error}=await db.from("jobs").select("*").order("created_at",{ascending:false});
+ if(error){status("بارگذاری آگهی‌ها ناموفق بود: "+error.message,true);return}
+ jobs=data||[];$("jobCount").textContent=fa(jobs.length);renderJobs();
+}
 function renderJobs(){
-let q=document.getElementById("search").value.toLowerCase();
-let list=document.getElementById("jobList");
-list.innerHTML="";
-let filtered=jobs.filter(j=>
-(j.title+" "+j.city+" "+j.company).toLowerCase().includes(q)
-);
-if(!filtered.length){
-list.textContent="هنوز آگهی ثبت نشده است.";
-return;
+ const q=$("searchText").value.trim().toLocaleLowerCase(),city=$("searchCity").value,host=$("jobs");host.replaceChildren();
+ const found=jobs.filter(j=>(!q||[j.title,j.category,j.description].join(" ").toLocaleLowerCase().includes(q))&&(!city||j.city===city));
+ if(!found.length){const e=document.createElement("div");e.className="empty";e.textContent="آگهی مطابق جست‌وجوی شما پیدا نشد.";host.append(e);return}
+ found.forEach(j=>{const card=document.createElement("article");card.className="job";card.innerHTML=`<div><span class="tag">${safe(j.category||"عمومی")}</span><span class="tag">${safe(j.job_type||"")}</span></div><h4>${safe(j.title)}</h4><div class="meta">📍 ${safe(j.city)} · ☎ ${safe(j.phone)}</div><div class="meta">معاش: ${safe(j.salary||"توافقی")}</div><div>${safe(j.description||"توضیحی ثبت نشده است.")}</div><div class="jobfoot"><small>${j.created_at?new Date(j.created_at).toLocaleDateString("fa-IR"):""}</small><a href="tel:${safe(j.phone).replace(/[^\d+]/g,"")}" style="text-decoration:none"><button type="button">تماس با کارفرما</button></a></div>`;host.append(card)});
 }
-filtered.forEach(j=>{
-let div=document.createElement("div");
-div.className="job";
-let h=document.createElement("h3");
-h.textContent=j.title;
-let p=document.createElement("p");
-p.textContent="شهر: "+j.city+" | شرکت: "+j.company;
-let s=document.createElement("p");
-s.textContent="معاش: "+(j.salary||"توافقی");
-let d=document.createElement("p");
-d.textContent=j.description;
-let a=document.createElement("a");
-a.textContent="تماس با کارفرما";
-a.href="tel:"+j.phone;
-div.append(h,p,s,d,a);
-list.appendChild(div);
-});
+$("searchBtn").onclick=renderJobs;$("searchText").oninput=renderJobs;$("searchCity").onchange=renderJobs;
+async function ensureProfile(user){
+ const {data,error}=await db.from("profiles").select("*").eq("id",user.id).maybeSingle();
+ if(error)throw error;
+ if(data){profile=data;return data}
+ const m=user.user_metadata||{};
+ const row={id:user.id,name:m.name||"کاربر",phone:user.phone||m.phone||"",city:m.city||"",role:m.role==="employer"?"employer":"worker"};
+ const result=await db.from("profiles").insert(row).select().single();
+ if(result.error)throw result.error;profile=result.data;return profile;
 }
-
-function addJob(){
-let j={
-title:document.getElementById("title").value.trim(),
-city:document.getElementById("city").value.trim(),
-company:document.getElementById("company").value.trim(),
-salary:document.getElementById("salary").value.trim(),
-description:document.getElementById("description").value.trim(),
-phone:document.getElementById("phone").value.trim()
+async function refreshAuth(){
+ const {data,error}=await db.auth.getSession();if(error)throw error;
+ currentUser=data.session?.user||null;profile=null;
+ if(currentUser)await ensureProfile(currentUser);
+ $("accountBtn").textContent=profile?.name||"ورود / ثبت‌نام";
+}
+function renderProfile(){
+ const host=$("profileContent");host.replaceChildren();
+ if(currentUser&&profile){
+  host.innerHTML=`<p><b>${safe(profile.name)}</b></p><p class="muted">${profile.role==="employer"?"حساب کارفرما":"حساب کارجو"} · ${safe(profile.city)}</p><p>شماره تماس: ${safe(profile.phone)}</p><div class="actions"><button class="danger" id="logoutBtn">خروج از حساب</button></div>`;
+  $("logoutBtn").onclick=async()=>{const {error}=await db.auth.signOut();if(error){status(error.message,true);return}currentUser=null;profile=null;$("accountBtn").textContent="ورود / ثبت‌نام";renderProfile();status("از حساب خارج شدید.")};
+ }else{
+  host.innerHTML=`<div class="formgrid"><div class="field full"><label>نام و نام خانوادگی</label><input id="regName" placeholder="نام شما"></div><div class="field"><label>نوع حساب</label><select id="regRole"><option value="worker">کارجو / کارگر</option><option value="employer">کارفرما</option></select></div><div class="field"><label>شهر</label><input id="regCity" placeholder="مثلاً هرات"></div><div class="field full"><label>شماره موبایل با کد کشور</label><input id="regPhone" inputmode="tel" placeholder="+937XXXXXXXX"></div><div class="field full"><label>رمز عبور (حداقل ۶ حرف)</label><input id="regPass" type="password" placeholder="رمز عبور"></div></div><div class="actions"><button id="registerBtn">ساخت حساب</button><button class="secondary" id="showLoginBtn">قبلاً حساب دارم</button></div><div class="notice">ورود با شماره و رمز بدون پیامک انجام می‌شود؛ شماره تلفن تأیید نمی‌شود و بازیابی رمز از راه پیامک یا ایمیل فعلاً وجود ندارد.</div>`;
+  $("registerBtn").onclick=register;$("showLoginBtn").onclick=showLogin;
+ }
+}
+function showLogin(){
+ const host=$("profileContent");host.innerHTML=`<div class="formgrid"><div class="field full"><label>شماره موبایل با کد کشور</label><input id="loginPhone" inputmode="tel" placeholder="+937XXXXXXXX"></div><div class="field full"><label>رمز عبور</label><input id="loginPass" type="password" placeholder="رمز عبور"></div></div><div class="actions"><button id="loginBtn">ورود</button><button class="secondary" id="backRegisterBtn">بازگشت به ثبت‌نام</button></div>`;$("loginBtn").onclick=login;$("backRegisterBtn").onclick=renderProfile;
+}
+async function register(){
+ const name=$("regName").value.trim(),city=$("regCity").value.trim(),phone=$("regPhone").value.trim(),password=$("regPass").value,role=$("regRole").value;
+ if(!name||!city||!phone||password.length<6){status("نام، شهر، شماره و رمز حداقل ۶ حرفی را کامل کنید.",true);return}
+ status("در حال ساخت حساب...");
+ let email;try{email=phoneLoginEmail(phone)}catch(e){status(e.message,true);return}
+ const {data,error}=await db.auth.signUp({email,password,options:{data:{name,city,phone,role}}});
+ if(error){status("ثبت‌نام انجام نشد: "+error.message,true);return}
+ if(!data.session){status("حساب ساخته شد اما نشست فعال نشد. در تنظیمات Supabase باید تأیید ایمیل خاموش باشد؛ شماره تلفن هم تأیید نمی‌شود.",true);showLogin();return}
+ try{currentUser=data.user;await ensureProfile(currentUser);$("accountBtn").textContent=profile.name;renderProfile();status("حساب شما ساخته شد.")}catch(e){status("حساب ساخته شد اما ساخت پروفایل مشکل داشت: "+e.message,true)}
+}
+async function login(){
+ const phone=$("loginPhone").value.trim(),password=$("loginPass").value;if(!phone||!password){status("شماره و رمز عبور را وارد کنید.",true);return}
+ status("در حال ورود...");
+ let email;try{email=phoneLoginEmail(phone)}catch(e){status(e.message,true);return}
+ const {data,error}=await db.auth.signInWithPassword({email,password});
+ if(error){status("ورود انجام نشد: "+error.message,true);return}
+ try{currentUser=data.user;await ensureProfile(currentUser);$("accountBtn").textContent=profile.name;renderProfile();status("با موفقیت وارد شدید.")}catch(e){status("ورود انجام شد اما دریافت پروفایل مشکل داشت: "+e.message,true)}
+}
+$("publishBtn").onclick=async()=>{
+ if(!currentUser||!profile){status("ابتدا وارد حساب کاربری شوید.",true);tab("profile");return}
+ if(profile.role!=="employer"){status("ثبت آگهی فقط برای حساب کارفرما فعال است.",true);return}
+ const title=$("jobTitle").value.trim(),city=$("jobCity").value,phone=$("jobPhone").value.trim();
+ if(!title||!city||!phone){status("عنوان شغل، شهر و شماره تماس را وارد کنید.",true);return}
+ status("در حال ثبت آگهی...");
+ const row={owner_id:currentUser.id,title,city,category:$("jobCategory").value,salary:$("jobSalary").value.trim(),phone,job_type:$("jobType").value,description:$("jobDesc").value.trim()};
+ const {error}=await db.from("jobs").insert(row);
+ if(error){status("ثبت آگهی ناموفق بود: "+error.message,true);return}
+ ["jobTitle","jobPhone","jobSalary","jobDesc"].forEach(id=>$(id).value="");$("jobCity").value="";
+ await loadJobs();status("آگهی با موفقیت ثبت شد و برای همه قابل مشاهده است.");tab("find");
 };
-if(!j.title||!j.city||!j.phone){
-alert("عنوان شغل، شهر و شماره تماس را وارد کنید.");
-return;
-}
-jobs.unshift(j);
-localStorage.setItem("karistan_jobs",JSON.stringify(jobs));
-document.getElementById("message").textContent="آگهی ثبت شد.";
-["title","city","company","salary","description","phone"].forEach(x=>document.getElementById(x).value="");
-showPage("jobs");
-renderJobs();
-}
-
-function registerUser(){
-let user={
-role:document.getElementById("role").value,
-name:document.getElementById("name").value.trim(),
-city:document.getElementById("regCity").value.trim(),
-phone:document.getElementById("regPhone").value.trim(),
-skill:document.getElementById("skill").value.trim()
-};
-if(!user.name||!user.phone){
-alert("نام و شماره تماس را وارد کنید.");
-return;
-}
-let users=JSON.parse(localStorage.getItem("karistan_users")||"[]");
-users.push(user);
-localStorage.setItem("karistan_users",JSON.stringify(users));
-document.getElementById("regMessage").textContent="ثبت‌نام انجام شد.";
-}
-
-renderJobs();
+(async()=>{try{await refreshAuth();await loadJobs()}catch(e){status("اتصال به پایگاه داده مشکل دارد: "+e.message,true)}})();
 </script>
 </body>
-</html>
+  </html>
